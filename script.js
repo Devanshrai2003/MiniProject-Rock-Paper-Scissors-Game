@@ -1,12 +1,13 @@
 let playerScore = 0;
 let computerScore = 0;
 const choices = document.querySelectorAll(".choice");
-const message = document.querySelector("#msg")
-const playerScoreCounter = document.querySelector("#player-score")
-const comptuerScoreCounter = document.querySelector("#computer-score")
+const message = document.querySelector("#msg");
+const compIcon = document.querySelector(".computer-choice-icon");
+const playerScoreCounter = document.querySelector("#player-score");
+const comptuerScoreCounter = document.querySelector("#computer-score");
 
 const drawGame = () => {
-    message.innerText = "Draw!"
+    message.innerText = "Draw!";
 }
 
 const showWinner = (playerWin, playerChoice, computerChoice) => {
@@ -17,7 +18,7 @@ const showWinner = (playerWin, playerChoice, computerChoice) => {
     }else{
         message.innerText = `You lose! ${computerChoice} beats ${playerChoice}!`;
         computerScore++;
-        comptuerScoreCounter.innerText = computerScore
+        comptuerScoreCounter.innerText = computerScore;
     }
 }
 
@@ -27,11 +28,31 @@ const genCompChoice = () => {
     return options[randomNo];
 }
 
+const displayCompChoice = (computerChoice) => {
+    if(computerChoice === "rock"){
+        compIcon.classList.add("rock-icon");
+        compIcon.classList.remove("paper-icon");
+        compIcon.classList.remove("scissors-icon");
+    }
+    if(computerChoice === "paper"){
+        compIcon.classList.add("paper-icon");
+        compIcon.classList.remove("rock-icon");
+        compIcon.classList.remove("scissors-icon");
+    }
+    if(computerChoice === "scissors"){
+        compIcon.classList.add("scissors-icon");
+        compIcon.classList.remove("paper-icon");
+        compIcon.classList.remove("rock-icon");
+    }
+    compIcon.classList.remove("hide");
+}
+
 const runGame = (playerChoice) => {
     const computerChoice = genCompChoice();
 
     if(playerChoice === computerChoice){
         drawGame();
+        displayCompChoice(computerChoice);
     }
     else{
         let playerWin = true;
@@ -44,7 +65,8 @@ const runGame = (playerChoice) => {
        else if(playerChoice === "scissors"){
             playerWin = computerChoice === "rock" ? false : true;
         }
-        showWinner(playerWin, playerChoice, computerChoice)
+        showWinner(playerWin, playerChoice, computerChoice);
+        displayCompChoice(computerChoice);
     }
 }
 

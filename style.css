@@ -33,15 +33,15 @@
 }
 .choices{
     width: 100%;
-    height: 62vh;
+    height: 31vh;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     background-color: #AFBEA2;
 }
 .choice{
-    height: 20vh;
-    width: 20vh;
+    height: 15vh;
+    width: 15vh;
     border-radius: 50%;
     font-size: 10rem;
     text-align: center;
@@ -51,13 +51,16 @@
     border: 5px solid crimson
 }
 #rock{
-    background-color: maroon;
+    background-image:url(rock.jpg);
+    background-size: cover;
 }
 #paper{
-    background-color: antiquewhite;
+    background-image:url(paper.jpg);
+    background-size: cover;
 }
 #scissors{
-    background-color: slategray;
+    background-image:url(scissors.jpg);
+    background-size: cover;
 }
 .scoreboard{
     display: flex;
@@ -67,7 +70,7 @@
     color: #E6D5A9;
     border-top: 4px solid #3f4d3d;
     padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-bottom: 31vh;
     font-size: 1.5rem;
 }
 .msg-container{
@@ -85,4 +88,34 @@
     font-weight: 900;
     font-size: 3rem;
     color:#3f4d3d;
+}
+.hide{
+    display: none;
+}
+.computer-choice-box{
+    width: 100%;
+    height:20vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:#AFBEA2;
+}
+.computer-choice-icon{
+    height: 15vh;
+    width: 15vh;
+    border-radius: 50%;
+    background-size: cover;
+    font-size: 10rem;
+    text-align: center;
+    justify-content: center;
+
+}
+.rock-icon{
+    background-image: url(rock.jpg);
+}
+.paper-icon{
+    background-image: url(paper.jpg);
+}
+.scissors-icon{
+    background-image: url(scissors.jpg);
 }
